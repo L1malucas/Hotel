@@ -1,9 +1,9 @@
 ﻿namespace Hotel.Models
 {
-    public class HotelModel
+    public class HotelBooking
     {
         public int Id { get; set; }
-        public int RoomNumber { get; set; } 
+        public int RoomNumber { get; set; }
         public string? ClientName { get; set; }
     }
 }
