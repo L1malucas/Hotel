@@ -14,6 +14,16 @@ namespace Hotel.Controllers
         {
             _context = context;
         }
+        [HttpGet]
+        public JsonResult Get(int id)
+        {
+            var result = _context.Bookings.Find(id);
+
+            if (result == null)
+                return new JsonResult(NotFound());
+
+            return new JsonResult(Ok(result));
+        }
 
         [HttpPost]
         public JsonResult CreateEdit(HotelBooking booking)
@@ -22,7 +32,8 @@ namespace Hotel.Controllers
             {
                 _context.Bookings.Add(booking);
 
-            }else
+            }
+            else
             {
                 var bookingInDb = _context.Bookings.Find(booking.Id);
 
